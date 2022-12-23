@@ -1,11 +1,33 @@
 # C-Data-Structures
 
 ## rot13.c
+Rot-13 (rotate-13) is a simple substitution cipher, in which each letter is encoded by the letter appearing 13 places later (or earlier) in the alphabet. Thus, A becomes N, M becomes Z, N becomes A, and Z becomes M. Because 13 is half the number of letters in the alphabet, we use the same substitution for ciphering and deciphering. That is, applying rot-13 twice to a text yields the original text.
 
+#### Usage
+$ ./rot13 Hello
+
+Uryyb
+
+$ ./rot13 Uryyb
+
+Hello
+
+$ ./rot13 ebg13
+
+rot13
+
+$ ./rot13 ""
+
+$ ./rot13 "Awesome Power!"
+
+Njrfbzr Cbjre!
+
+~/D/R/2/2/p/b/rot13 $ ./rot13 erzrzore\ gung\ gur\ furyy\ cebprffrf\ lbhe\ fgevat\ svefg
+
+remember that the shell processes your string first
 
 ## sort.c
 sort takes zero or more arguments, sorts them lexicographically, and then prints each argument on its own line.
-
 
 If sorta receives no arguments, it exits without printing anything.
 

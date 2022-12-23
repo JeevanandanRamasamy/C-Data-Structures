@@ -18,6 +18,8 @@ rot13
 
 $ ./rot13 ""
 
+
+
 $ ./rot13 "Awesome Power!"
 
 Njrfbzr Cbjre!

@@ -321,21 +321,8 @@ p
 ^D here indicates typing Control-D at the start of a line in order to signal the end of file.
 
 #### Printing nodes
-     2
-     
-    / \
-    
-   1   5
-   
-      / \
-      
-     3   6
-     
-      \
-      
-       4
 
-An empty tree (that is, NULL) is printed as an empty string. A node is printed as a (, followed by the left sub-tree, the item for that node, the right subtree, and ), without spaces. For example, the output corresponding to the above tree is ((1)2((3(4))5(6))).
+An empty tree (that is, NULL) is printed as an empty string. A node is printed as a (, followed by the left sub-tree, the item for that node, the right subtree, and ), without spaces.
 
 #### Deleting nodes
 

@@ -225,27 +225,128 @@ $ ./list < list_commands.txt
 
 ## mexp.c | Matrix Exponentiation
 
+mexp multiplies a square matrix by itself a specified number of times. mexp takes a single argument, which is the path to a file containing a square (k ×k) matrix M and a non-negative exponent n. It computes M nand prints the result.
 
+Since the size of the matrix is not known statically, mexp uses malloc to allocate space for the matrix once its size is obtained from the input file.
 
+To compute M^n, it is sufficient to multiply M by itself n − 1 times. That is, M^3 = M × M × M.
 
+Naturally, a different strategy is needed for M^0.
 
+**Input format** The first line of the input file contains an integer k. This indicates the size of the matrix M, which has k rows and k columns.
 
+The next k lines in the input file contain k integers. These indicate the content of M. Each line corresponds to a row, beginning with the first (top) row.
+
+The final line contains an integer n. This indicates the number of times M will be multiplied by itself. n must be non-negative.
+
+For example, an input file file.txt containing
+
+3
+
+1 2 3
+
+4 5 6
+
+7 8 9
+
+2
+
+indicates that mexp must compute the square of the matrix
+
+1 2 3
+
+4 5 6
+
+7 8 9
+
+**Output format** The output of mexp is the computed matrix M^n. Each row of M^n is printed on a separate line, beginning with the first (top) row. The items within a row are separated by spaces.
+
+#### Usage
+
+$ ./mexp file1.txt
+
+30 36 42
+
+66 81 96
+
+102 126 150
 
 ## bst.c | Binary Search Tree Implementation
 
+bst manipulates binary search trees. It will receive commands from standard input, and print resposes to those commands to standard output.
 
+A binary search tree is a binary tree that stores integer values in its interior nodes. The value for a particular node is greater than every value stored its left sub-tree and less than every value stored in its right sub-tree. The tree will not contain any value more than once. bst allocates space for new nodes as they are created using malloc; any allocated space is deallocated using free before bst terminates.
 
+#### Commands
 
+**insert** n Adds a value to the tree, if not already present. The new node will always be added as the child of an existing node, or as the root. No existing node will change or move as as result of inserting an item. If n was not present, and hence has been inserted, bst will print inserted.
+Otherwise, it will print not inserted. The instruction format is an i followed by an integer n.
 
+**search** n Searches the tree for a value n. If n is present, bst will print present. Otherwise, it will print absent. The instruction format is an s followed by an integer n.
 
+**print** Prints the current tree structure. The instruction format is a p.
 
+**delete** n Removes a value from the tree. See section 1.6.2 for further discussion of deleting nodes. If n is not present, print absent. Otherwise, print deleted. The instruction format is a d followed by an integer n.
 
+**Input format** The input will be a series of lines, each beginning with a command character (i, s, p, or d), possibly followed by an integer. When the input ends, the program terminates.
 
+**Output format** The output will be a series of lines, each in response to an input command. Most commands will respond with a word, aside from p.
 
+#### Usage
 
+$ ./bst
 
+i 1
 
+inserted
 
+i 2
 
+inserted
 
+i 1
 
+not inserted
+
+s 3
+
+absent
+
+p
+
+(1(2))
+
+^D
+
+^D here indicates typing Control-D at the start of a line in order to signal the end of file.
+
+#### Printing nodes
+     2
+     
+    / \
+    
+   1   5
+   
+      / \
+      
+     3   6
+     
+      \
+      
+       4
+
+An empty tree (that is, NULL) is printed as an empty string. A node is printed as a (, followed by the left sub-tree, the item for that node, the right subtree, and ), without spaces. For example, the output corresponding to the above tree is ((1)2((3(4))5(6))).
+
+#### Deleting nodes
+
+There are several strategies for deleting nodes in a binary tree: 
+
+- If a node has no children, it can simply be removed. That is, the pointer to it can be changed to a NULL pointer.
+
+- If a node has one child, it can be replaced by that child. 
+
+- If a node has two children, its value will be changed to the maximum element in its left subtree.
+
+The node which previously contained that value will then be deleted.
+
+Note that the root node could also be deleted.

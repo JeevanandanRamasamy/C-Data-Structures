@@ -3,7 +3,7 @@
 ## rot13.c
 Rot-13 (rotate-13) is a simple substitution cipher, in which each letter is encoded by the letter appearing 13 places later (or earlier) in the alphabet. Thus, A becomes N, M becomes Z, N becomes A, and Z becomes M. Because 13 is half the number of letters in the alphabet, we use the same substitution for ciphering and deciphering. That is, applying rot-13 twice to a text yields the original text.
 
-#### Usage
+### Usage
 $ ./rot13 Hello
 
 Uryyb
@@ -17,8 +17,6 @@ $ ./rot13 ebg13
 rot13
 
 $ ./rot13 ""
-
--
 
 $ ./rot13 "Awesome Power!"
 
@@ -40,11 +38,11 @@ sudoku checks whether a proposed Sudoku solution is correct and checks whether a
 
 A completed Sudoku puzzle is a 9 ×9 matrix containing the digits 1–9, inclusive. The matrix is divided into nine 3 ×3 submatrixes, themselves arranged in a 3 ×3 square. A completed Sudoku puzzle is a correct solution if and only if it has the following properties:
 
-• Each digit occurs exactly once in each row (that is, no row contains any digit more than once.
+- Each digit occurs exactly once in each row (that is, no row contains any digit more than once.
 
-• Each digit occurs exactly once in each column.
+- Each digit occurs exactly once in each column.
 
-• Each digit occurs exactly once in each submatrix.
+- Each digit occurs exactly once in each submatrix.
 
 An almost-completed Sudoku puzzle is similar, except that one or two elements are unspecified.
 
